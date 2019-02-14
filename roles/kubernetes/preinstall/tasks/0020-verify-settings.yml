@@ -56,11 +56,11 @@
     that: groups.etcd|length is not divisibleby 2
   ignore_errors: "{{ ignore_assert_errors }}"
 
-- name: Stop if memory is too small for masters
-  assert:
-    that: ansible_memtotal_mb >= 1500
-  ignore_errors: "{{ ignore_assert_errors }}"
-  when: inventory_hostname in groups['kube-master']
+#- name: Stop if memory is too small for masters
+#  assert:
+#    that: ansible_memtotal_mb >= 1500
+#  ignore_errors: "{{ ignore_assert_errors }}"
+#  when: inventory_hostname in groups['kube-master']
 
 - name: Stop if memory is too small for nodes
   assert:
